@@ -1,7 +1,10 @@
 import { useGetUsersQuery } from "./usersApiSlice"
 import User from './User'
+import useTitle from "../../hooks/useTitle"
+import PulseLoader from 'react-spinners/PulseLoader'
 
 const UsersList = () => {
+    useTitle('AutoCraft: Lista użytkowników')
 
     const {
         data: users,
@@ -9,11 +12,15 @@ const UsersList = () => {
         isSuccess,
         isError,
         error
-    } = useGetUsersQuery()
+    } = useGetUsersQuery('usersList', {
+        pollingInterval: 60000,
+        refetchOnFocus: true,
+        refetchOnMountOrArgChange: true
+    })
 
     let content
 
-    if (isLoading) content = <p>Ładowanie...</p>
+    if (isLoading) content = <PulseLoader color={"#FFF"} />
 
     if (isError) {
         content = <p className="errmsg">{error?.data?.message}</p>
@@ -23,15 +30,13 @@ const UsersList = () => {
 
         const { ids } = users
 
-        const tableContent = ids?.length
-            ? ids.map(userId => <User key={userId} userId={userId} />)
-            : null
+        const tableContent = ids?.length && ids.map(userId => <User key={userId} userId={userId} />)
 
         content = (
             <table className="table table--users">
                 <thead className="table__thead">
                 <tr>
-                    <th scope="col" className="table__th user__username">Nazwa użytkownika</th>
+                    <th scope="col" className="table__th user__username">Użytkownik</th>
                     <th scope="col" className="table__th user__roles">Role</th>
                     <th scope="col" className="table__th user__edit">Edytuj</th>
                 </tr>
