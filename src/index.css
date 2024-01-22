@@ -6,10 +6,10 @@
   box-sizing: border-box;
 }
 
-/* || VARIABLES */
+/* || Zmienne */
 
 :root {
-  /* COLORS */
+  /* Kolory */
   --BGCOLOR: #0F172A;
   --BORDER-COLOR: #FFF;
   --COLOR: #FFF;
@@ -25,7 +25,7 @@
   --INPUT-INVALID: #F00;
 }
 
-/* || UTILITY CLASSES */
+/* || Klasy użytkowe */
 .errmsg {
   display: inline-block;
   background-color: var(--TABLE-BGCOLOR);
@@ -63,7 +63,7 @@
   visibility: hidden;
 }
 
-/* || GENERAL STYLES */
+/* || Style generalne */
 
 body {
   font-family: 'Nunito', sans-serif;
@@ -84,7 +84,7 @@ select {
 }
 
 #root {
-  /* React root div */
+  /* React rozdzielacz */
   min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
@@ -103,7 +103,7 @@ a:focus-visible {
   color: var(--LINK-HOVER);
 }
 
-/* || PAGES */
+/* || Strony */
 
 .public,
 .welcome {
@@ -133,7 +133,7 @@ a:focus-visible {
   content: "➜ "
 }
 
-/* || DASH HEADER, CONTAINER & FOOTER */
+/* || Header, kontener i stopka interfejsu */
 
 .dash-header {
   position: sticky;
@@ -187,7 +187,7 @@ a:focus-visible {
   height: auto;
 }
 
-/* || TABLES - GENERAL */
+/* || Tabele */
 
 thead,
 tbody,
@@ -233,7 +233,7 @@ tr {
   background-color: var(--INACTIVE);
 }
 
-/* ||  NOTE */
+/* ||  Notka */
 
 .note__created,
 .note__updated,
@@ -254,7 +254,7 @@ tr {
 }
 
 
-/* || FORM - GENERAL */
+/* || Formularz */
 
 .form {
   display: flex;
